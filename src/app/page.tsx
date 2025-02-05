@@ -1,68 +1,83 @@
-import Link from "next/link";
+"use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useRef, useState } from "react";
+import { Code2, BookOpen, Zap } from "lucide-react";
+import NavBar from "@/components/Navbar";
+import { useRouter } from "next/navigation";
 
-export default function Home() {
+import { motion } from "framer-motion";
+
+const Web3AssistanceLanding: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-gray-50">
-      <header className="py-8 bg-white shadow-md">
-        <h1 className="text-center text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          Agent Portal
-        </h1>
-        <p className="text-center mt-2 text-gray-600">
-          Select an agent to get started
-        </p>
-      </header>
-      <main className="container mx-auto p-8 max-w-5xl">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-          <Link
-            href="/bridge-agent"
-            className="transform hover:scale-105 transition duration-300"
-          >
-            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl border border-gray-100">
-              <h2 className="text-2xl font-semibold text-blue-600 mb-3">
-                Bridge Agent
-              </h2>
-              <p className="text-gray-600">
-                Manage and monitor bridge operations
-              </p>
-            </div>
-          </Link>
-          <Link
-            href="/base-agent"
-            className="transform hover:scale-105 transition duration-300"
-          >
-            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl border border-gray-100">
-              <h2 className="text-2xl font-semibold text-purple-600 mb-3">
-                Base Agent
-              </h2>
-              <p className="text-gray-600">
-                Core system management and control
-              </p>
-            </div>
-          </Link>
-          <Link
-            href="/scheduler-agent"
-            className="transform hover:scale-105 transition duration-300"
-          >
-            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl border border-gray-100">
-              <h2 className="text-2xl font-semibold text-indigo-600 mb-3">
-                Scheduler Agent
-              </h2>
-              <p className="text-gray-600">Task scheduling and automation</p>
-            </div>
-          </Link>
-          <Link
-            href="/warden-agent"
-            className="transform hover:scale-105 transition duration-300"
-          >
-            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl border border-gray-100">
-              <h2 className="text-2xl font-semibold text-teal-600 mb-3">
-                Warden Agent
-              </h2>
-              <p className="text-gray-600">Security and access management</p>
-            </div>
-          </Link>
-        </div>
-      </main>
+    <div className="relative min-h-screen bg-[#0A192F] text-white overflow-hidden">
+      {/* Dynamic Background Elements */}
+      <div className="fixed inset-0 pointer-events-none">
+        {/* Floating Star-like Particles */}
+        {[...Array(50)].map((_, i) => (
+          <motion.div
+            key={`particle-${i}`}
+            className={`absolute rounded-full ${
+              i % 3 === 0
+                ? "w-1.5 h-1.5 bg-cyan-400/20"
+                : i % 2 === 0
+                ? "w-1 h-1 bg-blue-400/20"
+                : "w-0.5 h-0.5 bg-white/20"
+            }`}
+            animate={{
+              y: [0, -20, 0],
+              opacity: [0.2, 0.5, 0.2],
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: Math.random() * 3,
+            }}
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+          />
+        ))}
+
+        {/* Gradient Orbs */}
+        {[...Array(4)].map((_, i) => (
+          <motion.div
+            key={`orb-${i}`}
+            className="absolute w-[500px] h-[500px] rounded-full"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.1, 0.15, 0.1],
+            }}
+            transition={{
+              duration: 8 + Math.random() * 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 2,
+            }}
+            style={{
+              background: `radial-gradient(circle, ${
+                i % 2 === 0 ? "rgba(34,211,238,0.1)" : "rgba(37,99,235,0.1)"
+              } 0%, transparent 70%)`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              transform: `translate(-50%, -50%)`,
+            }}
+          />
+        ))}
+
+        {/* Background Gradient Mesh */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-cyan-500/5 via-transparent to-transparent opacity-30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/5 to-transparent" />
+      </div>
+
+      {/* Main Content */}
+      <div className="relative z-10 pt-20">
+        <NavBar />
+      </div>
     </div>
   );
-}
+};
+
+export default Web3AssistanceLanding;
