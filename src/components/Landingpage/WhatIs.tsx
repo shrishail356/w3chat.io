@@ -47,28 +47,28 @@ const WhatIs: React.FC = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8 }}
-      className="max-w-7xl mx-auto px-4 sm:px-6 py-20 relative"
+      className="w-full max-w-[1400px] mx-auto px-6 lg:px-8 py-24 relative"
     >
       {/* Section Title */}
       <motion.div
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-16"
+        className="text-center mb-20"
       >
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+        <h2 className="text-4xl sm:text-5xl font-bold mb-6 tracking-tight">
           What is{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
             W3Chat.io?
           </span>
         </h2>
-        <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+        <p className="text-gray-400 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
           Your comprehensive Web3 assistant platform powered by specialized AI
           Agents, each designed to excel in specific blockchain interactions.
         </p>
       </motion.div>
 
       {/* Bots Grid */}
-      <div className="grid md:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
         {bots.map((bot, index) => (
           <div
             key={bot.name}
@@ -80,7 +80,7 @@ const WhatIs: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="relative"
+              className="relative h-full"
             >
               {/* Card Background with Mesh Gradient */}
               <div className="absolute inset-0 rounded-2xl">
@@ -94,13 +94,13 @@ const WhatIs: React.FC = () => {
               <motion.div
                 whileHover={{ y: -5 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                className="relative backdrop-blur-sm border border-white/10 rounded-2xl p-6 h-full flex flex-col transition-all duration-300 group-hover:border-white/20"
+                className="relative backdrop-blur-sm border border-white/10 rounded-2xl p-8 h-full flex flex-col transition-all duration-300 hover:border-white/20 hover:shadow-lg hover:shadow-cyan-500/5"
               >
                 <div className="flex flex-col items-center mb-6">
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300 }}
-                    className={`w-24 h-24 mb-4 rounded-full overflow-hidden ring-2 ring-${bot.accentColor} ring-offset-1 ring-offset-[#0A192F] transition-all duration-300`}
+                    className={`w-28 h-28 mb-6 rounded-full overflow-hidden ring-2 ring-${bot.accentColor} ring-offset-2 ring-offset-[#0A192F] transition-all duration-300 shadow-xl`}
                   >
                     <img
                       src={bot.image}
@@ -109,11 +109,11 @@ const WhatIs: React.FC = () => {
                     />
                   </motion.div>
                   <div className="text-center">
-                    <h3 className="text-2xl font-bold text-white mb-1">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
                       {bot.name}
                     </h3>
                     <p
-                      className={`text-${bot.accentColor} text-sm font-medium`}
+                      className={`text-${bot.accentColor} text-base font-semibold tracking-wide`}
                     >
                       {bot.role}
                     </p>
@@ -121,13 +121,29 @@ const WhatIs: React.FC = () => {
                 </div>
 
                 <div className="text-center space-y-6 flex-grow flex flex-col justify-between">
-                  <p className="text-gray-300 text-sm leading-relaxed">
+                  <p className="text-gray-300 text-base leading-relaxed">
                     {bot.description}
                   </p>
+                  <div className="mt-6 pt-6 border-t border-white/5">
+                    <button className="group inline-flex items-center gap-2 text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors">
+                      Learn more
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             </motion.div>
-            <div className="text-right mt-2"></div>
+            <div className="text-right mt-3">
+              <a
+                href={`/${bot.name.toLowerCase()}`}
+                target="_blank"
+                onClick={(e) => e.stopPropagation()}
+                className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-cyan-400 transition-colors"
+              >
+                <span>Open in new tab</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
           </div>
         ))}
       </div>
