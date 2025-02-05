@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/navigation";
 import { Code2, BookOpen, Zap, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -34,11 +35,12 @@ const bots = [
     accentColor: "cyan-400",
 
     description:
-      "An AI agent that enables seamless Web3 interactions on the Warden Protocol chain. Whether it’s interacting with smart contracts or creating new ones, Warden simplifies your blockchain experience.",
+      "An AI agent that enables seamless Web3 interactions on the Warden Protocol chain. Whether it's interacting with smart contracts or creating new ones, Warden simplifies your blockchain experience.",
   },
 ];
 
 const WhatIs: React.FC = () => {
+  const router = useRouter();
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -68,59 +70,65 @@ const WhatIs: React.FC = () => {
       {/* Bots Grid */}
       <div className="grid md:grid-cols-3 gap-8">
         {bots.map((bot, index) => (
-          <motion.div
+          <div
             key={bot.name}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 0.5,
-              delay: index * 0.2,
-            }}
+            className="relative cursor-pointer"
+            onClick={() => router.push(`/${bot.name.toLowerCase()}`)}
           >
-            {/* Card Background with Mesh Gradient */}
-            <div className="absolute inset-0 rounded-2xl">
-              <div
-                className={`absolute inset-0 bg-gradient-to-b ${bot.bgGradient} rounded-2xl`}
-              />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-30" />
-            </div>
-
-            {/* Card content */}
             <motion.div
-              whileHover={{ y: -5 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="relative backdrop-blur-sm border border-white/10 rounded-2xl p-6 h-full flex flex-col transition-all duration-300 group-hover:border-white/20"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              className="relative"
             >
-              <div className="flex flex-col items-center mb-6">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className={`w-24 h-24 mb-4 rounded-full overflow-hidden ring-2 ring-${bot.accentColor} ring-offset-1 ring-offset-[#0A192F] transition-all duration-300`}
-                >
-                  <img
-                    src={bot.image}
-                    alt={`${bot.name} Bot`}
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold text-white mb-1">
-                    {bot.name}
-                  </h3>
-                  <p className={`text-${bot.accentColor} text-sm font-medium`}>
-                    {bot.role}
+              {/* Card Background with Mesh Gradient */}
+              <div className="absolute inset-0 rounded-2xl">
+                <div
+                  className={`absolute inset-0 bg-gradient-to-b ${bot.bgGradient} rounded-2xl`}
+                />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-30" />
+              </div>
+
+              {/* Card content */}
+              <motion.div
+                whileHover={{ y: -5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="relative backdrop-blur-sm border border-white/10 rounded-2xl p-6 h-full flex flex-col transition-all duration-300 group-hover:border-white/20"
+              >
+                <div className="flex flex-col items-center mb-6">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    className={`w-24 h-24 mb-4 rounded-full overflow-hidden ring-2 ring-${bot.accentColor} ring-offset-1 ring-offset-[#0A192F] transition-all duration-300`}
+                  >
+                    <img
+                      src={bot.image}
+                      alt={`${bot.name} Bot`}
+                      className="w-full h-full object-cover"
+                    />
+                  </motion.div>
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold text-white mb-1">
+                      {bot.name}
+                    </h3>
+                    <p
+                      className={`text-${bot.accentColor} text-sm font-medium`}
+                    >
+                      {bot.role}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="text-center space-y-6 flex-grow flex flex-col justify-between">
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    {bot.description}
                   </p>
                 </div>
-              </div>
-
-              <div className="text-center space-y-6 flex-grow flex flex-col justify-between">
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  {bot.description}
-                </p>
-              </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
+            <div className="text-right mt-2"></div>
+          </div>
         ))}
       </div>
     </motion.div>

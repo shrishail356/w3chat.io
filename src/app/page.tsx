@@ -80,26 +80,6 @@ const Web3AssistanceLanding: React.FC = () => {
         <div id="whatis">
           <WhatIs />
         </div>
-        <div className="flex justify-around mt-10">
-          <div
-            onClick={() => router.push("/eigen")}
-            className="cursor-pointer p-4 bg-blue-500 rounded hover:bg-blue-600"
-          >
-            Eigen
-          </div>
-          <div
-            onClick={() => router.push("/base")}
-            className="cursor-pointer p-4 bg-green-500 rounded hover:bg-green-600"
-          >
-            Base
-          </div>
-          <div
-            onClick={() => router.push("/warden")}
-            className="cursor-pointer p-4 bg-purple-500 rounded hover:bg-purple-600"
-          >
-            Warden
-          </div>
-        </div>
       </div>
     </div>
   );
