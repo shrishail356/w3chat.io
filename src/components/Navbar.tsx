@@ -12,8 +12,7 @@ const NavBar: React.FC = () => {
   const isHomePage = pathname === "/";
 
   const navLinks = [
-    { name: "About", href: "#" },
-
+    { name: "About", href: "#whatis" },
     { name: "Contact Us", href: "#" },
   ];
 
