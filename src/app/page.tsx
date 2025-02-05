@@ -4,6 +4,7 @@ import React, { useRef, useState } from "react";
 import { Code2, BookOpen, Zap } from "lucide-react";
 import NavBar from "@/components/Navbar";
 import { useRouter } from "next/navigation";
+import WhatIs from "@/components/Landingpage/WhatIs";
 
 import { motion } from "framer-motion";
 
@@ -75,6 +76,9 @@ const Web3AssistanceLanding: React.FC = () => {
       {/* Main Content */}
       <div className="relative z-10 pt-20">
         <NavBar />
+        <div id="whatis">
+          <WhatIs />
+        </div>
       </div>
     </div>
   );
