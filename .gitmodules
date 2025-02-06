@@ -1,0 +1,3 @@
+[submodule "src/nillion/nillion-sv-example"]
+	path = src/nillion/nillion-sv-example
+	url = https://github.com/oceans404/nillion-sv-example.git
