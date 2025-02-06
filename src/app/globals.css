@@ -1,16 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
 /* Import Space Mono from Google Fonts */
 /* Set global font */
+/* Set global font */
 :root {
-  --font-primary: "Space Mono", monospace;
+  --font-primary: "JetBrains Mono", monospace;
   --button-primary: #1a1b1f;
   --border-color: #2c2d30;
   --card-content: #2c2d30;
 }
+
 
 body {
   font-family: var(--font-primary);
