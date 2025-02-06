@@ -70,11 +70,7 @@ const WhatIs: React.FC = () => {
       {/* Bots Grid */}
       <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
         {bots.map((bot, index) => (
-          <div
-            key={bot.name}
-            className="relative cursor-pointer"
-            onClick={() => router.push(`/${bot.name.toLowerCase()}`)}
-          >
+          <div key={bot.name} className="relative cursor-pointer">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -124,26 +120,10 @@ const WhatIs: React.FC = () => {
                   <p className="text-gray-300 text-base leading-relaxed">
                     {bot.description}
                   </p>
-                  <div className="mt-6 pt-6 border-t border-white/5">
-                    <button className="group inline-flex items-center gap-2 text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors">
-                      Learn more
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                    </button>
-                  </div>
+                  <div className="mt-6 pt-6 border-t border-white/5"></div>
                 </div>
               </motion.div>
             </motion.div>
-            <div className="text-right mt-3">
-              <a
-                href={`/${bot.name.toLowerCase()}`}
-                target="_blank"
-                onClick={(e) => e.stopPropagation()}
-                className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-cyan-400 transition-colors"
-              >
-                <span>Open in new tab</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
           </div>
         ))}
       </div>
