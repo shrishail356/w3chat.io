@@ -1,0 +1,15 @@
+{
+  "name": "W3Chat.io",
+  "short_name": "W3Chat",
+  "description": "All-in-One AI-Agent for Web3",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A192F",
+  "theme_color": "#0A192F",
+  "icons": [
+    {
+      "src": "/icon-dark.png",
+      "type": "image/png"
+    }
+  ]
+}
