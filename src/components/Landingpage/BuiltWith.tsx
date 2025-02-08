@@ -89,7 +89,7 @@ const BuiltWith: React.FC = () => {
             </span>
           </h3>
           <p className="mt-4 text-gray-400 text-lg">
-            Open for Partnerships, collaborations, and integrations
+            will be building on more soon.
           </p>
         </motion.div>
       </div>
