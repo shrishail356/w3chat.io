@@ -1,12 +1,16 @@
 "use client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, {  } from "react";
-import NavBar from "@/components/Navbar";
+import React, { useRef, useState } from "react";
+import { Code2, BookOpen, Zap } from "lucide-react";
+import NavBar from "@/components/NavBar";
+import { useRouter } from "next/navigation";
 import Title from "@/components/Landingpage/Title";
+import WhatIs from "@/components/Landingpage/Whatis";
 
 import { motion } from "framer-motion";
-import Footer from "@/components/Landingpage/Footer";
+import BuiltWith from "@/components/Landingpage/BuiltWith";
 
+import Footer from "@/components/Landingpage/Footer";
 
 const Web3AssistanceLanding: React.FC = () => {
   return (
@@ -76,7 +80,18 @@ const Web3AssistanceLanding: React.FC = () => {
       {/* Main Content */}
       <div className="relative z-10 pt-20">
         <NavBar />
-        <Title />
+        <div id="home">
+          <Title />
+        </div>
+
+        <div id="whatis">
+          <WhatIs />
+        </div>
+
+        <div id="builtwith">
+          <BuiltWith />
+        </div>
+
         <div id="footer">
           <Footer />
         </div>

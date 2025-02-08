@@ -30,15 +30,13 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" type="image/svg+xml" href="/fevicon.svg" />
-        <title>W3Chat.io</title>
+        <title>W3Chat.io | All-in-one Agent</title>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
-            <NetworkProvider>
-              {children}
-            </NetworkProvider>
+          <NetworkProvider>{children}</NetworkProvider>
         </Providers>
       </body>
     </html>
