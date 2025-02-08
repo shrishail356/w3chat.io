@@ -21,12 +21,10 @@ const Footer: React.FC = () => {
   const isHomePage = pathname === "/";
 
   const sectionLinks = [
+    { name: "Home", href: "#home" },
     { name: "About", href: "#whatis" },
-    { name: "Features", href: "#features" },
-    { name: "Supported Chains", href: "#chains" },
-    { name: "Roadmap", href: "#roadmap" },
-    { name: "Partners", href: "#builtwith" },
-    { name: "FAQ", href: "#faq" },
+
+    { name: "Built with", href: "#builtwith" },
   ];
 
   const socialLinks = [
@@ -37,13 +35,13 @@ const Footer: React.FC = () => {
     },
     {
       name: "Telegram",
-      href: "https://t.me/w3chat_io",
+      href: "https://t.me/chinmay_io",
       icon: <MessageCircle className="w-5 h-5" />,
     },
     {
       name: "GitHub",
-      href: "https://github.com/w3chat-io",
-      icon: <Brain className="w-5 h-5" />,
+      href: "https://github.com/shrishail356/w3chat.io",
+      icon: <Github className="w-5 h-5" />,
     },
   ];
 
@@ -133,17 +131,6 @@ const Footer: React.FC = () => {
                     <span>contact@w3chat.io</span>
                   </a>
                 </div>
-
-                {/* Support Button
-                <div>
-                  <a
-                    href="/donation"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-pink-500/10 to-purple-500/10 border border-pink-500/20 hover:border-pink-500/40 text-pink-400 hover:text-pink-300 transition-all duration-300 group"
-                  >
-                    <Heart className="w-4 h-4 text-pink-400 group-hover:text-pink-300 group-hover:scale-110 transition-all" />
-                    <span className="text-sm font-medium">Support W3Chat</span>
-                  </a>
-                </div> */}
               </div>
             </div>
           </div>

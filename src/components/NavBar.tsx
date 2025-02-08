@@ -11,6 +11,12 @@ const NavBar: React.FC = () => {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
 
+  const navLinks = [
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#whatis" },
+
+    { name: "Built with", href: "#builtwith" },
+  ];
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -50,12 +56,22 @@ const NavBar: React.FC = () => {
 
         {/* Navigation Links - Desktop */}
         <div className="hidden md:flex items-center space-x-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
+              className="text-gray-300 hover:text-cyan-400 transition-colors text-sm font-medium"
+            >
+              {link.name}
+            </a>
+          ))}
           <a
-            href="/chat/goku"
-            onClick={(e) => handleNavClick(e, "/chat/goku")}
+            href="#footer"
+            onClick={(e) => handleNavClick(e, "#footer")}
             className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:opacity-90 px-5 py-2.5 rounded-lg transition-all text-white text-sm font-medium"
           >
-            Chat
+            Contact us
           </a>
         </div>
       </div>
@@ -64,13 +80,23 @@ const NavBar: React.FC = () => {
       {isMenuOpen && (
         <div className="md:hidden absolute left-0 right-0 top-full bg-gradient-to-br from-[#0A192F] to-[#0a1930] shadow-lg border-t border-white/10">
           <div className="flex flex-col py-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-gray-300 hover:text-cyan-400 transition-colors text-sm font-medium px-6 py-3 hover:bg-white/5"
+              >
+                {link.name}
+              </a>
+            ))}
             <div className="px-6 pt-4">
               <a
-                href="/chat/goku"
-                onClick={(e) => handleNavClick(e, "/chat/goku")}
+                href="#footer"
+                onClick={(e) => handleNavClick(e, "#footer")}
                 className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:opacity-90 px-5 py-2.5 rounded-lg transition-all text-white text-sm font-medium w-full block text-center"
               >
-                Chat
+                Partner with us
               </a>
             </div>
           </div>
