@@ -1,7 +1,7 @@
 "use client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, {  } from "react";
-import NavBar from "@/components/NavBar";
+import NavBar from "@/components/Navbar";
 import Title from "@/components/Landingpage/Title";
 
 import { motion } from "framer-motion";
