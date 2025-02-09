@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  backend:
+    image: shrishail356/solana-ai-chat-backend:v1.0.0
+    container_name: solana-backend-working
+    ports:
+      - "8000:8000"
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - GROQ_API_KEY=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
+      - DOCS_PATH=./jupiter_docs.md
+      - DEV_MODE=True
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
+    container_name: redisSolana
+    ports:
+      - "6379:6379"

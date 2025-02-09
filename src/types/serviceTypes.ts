@@ -2,6 +2,7 @@ interface BaseServiceData {
     serviceType: string;
     isReadyForTransaction: boolean;
     sessionId: string;
+    network: string;
   }
   
   // Token Send
@@ -10,6 +11,7 @@ interface BaseServiceData {
     amount: number | null;
     token: string;
     toAddress: string | null;
+    network: string;
   }
   
   // ENS Token Send
@@ -18,6 +20,7 @@ interface BaseServiceData {
     amount: number | null;
     token: string;
     domain: string | null;
+    network: string;
   }
   
   // Batch Transfer
@@ -25,6 +28,7 @@ interface BaseServiceData {
     token: string;
     amount: number | null;
     toAddress: string | null;
+    network: string;
   }
   
   export interface BatchTransferData extends BaseServiceData {
@@ -38,26 +42,25 @@ interface BaseServiceData {
     fromToken: string;
     toToken: string;
     amount: number | null;
+    network: string;
   }
   
   // Get Wallet Balances
   export interface GetWalletBalancesData extends BaseServiceData {
     serviceType: 'getWalletBalances';
     addresses: string[];
+    network: string;
   }
   
   // Get Wallet Portfolio
   export interface GetWalletPortfolioData extends BaseServiceData {
     serviceType: 'getWalletPortfolio';
     addresses: string[];
+    network: string;
   }
   
 
-  // Request Faucet
-  export interface RequestFaucetData extends BaseServiceData {
-    serviceType: 'requestFaucet';
-    network: 'devnet' | 'testnet' | null;
-  }
+
   
   // Union type of all service data types
   export type ServiceData = 

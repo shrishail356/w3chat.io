@@ -1,9 +1,7 @@
 "use client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useRef, useState } from "react";
-import { Code2, BookOpen, Zap } from "lucide-react";
-import NavBar from "@/components/NavBar";
-import { useRouter } from "next/navigation";
+import React, {  } from "react";
+import NavBar from "@/components/Navbar";
 import Title from "@/components/Landingpage/Title";
 import WhatIs from "@/components/Landingpage/Whatis";
 

@@ -5,11 +5,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { handleSectionNavigation } from "@/utils/navigation";
+import { useMobile } from '@/context/MobileContext';
 
 const NavBar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const { isMobile } = useMobile();
 
   const navLinks = [
     { name: "Home", href: "#home" },
@@ -34,16 +36,16 @@ const NavBar: React.FC = () => {
           <Image
             src="/logo.png"
             alt="W3Chat.io"
-            width={160}
-            height={45}
-            className="h-8 md:h-10 w-auto object-contain"
+            width={180}
+            height={65}
+            className="h-10 w-auto object-contain"
             priority
           />
         </Link>
 
         {/* Menu toggle button (visible on mobile) */}
         <button
-          className="md:hidden text-cyan-400 focus:outline-none p-2 hover:bg-white/5 rounded-lg transition-colors"
+          className={`text-cyan-400 focus:outline-none p-2 hover:bg-white/5 rounded-lg transition-colors ${isMobile ? '' : 'hidden'}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -54,8 +56,8 @@ const NavBar: React.FC = () => {
           )}
         </button>
 
-        {/* Navigation Links - Desktop */}
-        <div className="hidden md:flex items-center space-x-8">
+        {/* Navigation Links */}
+        <div className={`flex items-center space-x-8 ${isMobile ? 'hidden' : ''}`}>
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -77,7 +79,7 @@ const NavBar: React.FC = () => {
       </div>
 
       {/* Mobile Dropdown Menu */}
-      {isMenuOpen && (
+      {isMobile && isMenuOpen && (
         <div className="md:hidden absolute left-0 right-0 top-full bg-gradient-to-br from-[#0A192F] to-[#0a1930] shadow-lg border-t border-white/10">
           <div className="flex flex-col py-4">
             {navLinks.map((link) => (
@@ -107,3 +109,4 @@ const NavBar: React.FC = () => {
 };
 
 export default NavBar;
+

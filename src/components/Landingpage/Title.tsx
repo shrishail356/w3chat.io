@@ -69,7 +69,7 @@ const Title: React.FC = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
 
             <Image
-              src="/demo-dashboard.png"
+              src="/image.png"
               alt="AI Dashboard Interface"
               fill
               className="object-contain p-4 rounded-xl transition-transform duration-500 group-hover:scale-105"

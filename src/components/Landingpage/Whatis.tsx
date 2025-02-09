@@ -10,7 +10,7 @@ const bots = [
     icon: BookOpen,
     bgGradient: "from-cyan-500/10 via-cyan-500/5 to-transparent",
     accentColor: "cyan-400",
-    path: "/base",
+    path: "/onchain/agent",
     isComingSoon: false,
     description:
       "An on-chain agent for seamless Base blockchain interactions — send, swap, bridge, mint, and more with ease and efficiency!",
@@ -23,7 +23,7 @@ const bots = [
     icon: Zap,
     bgGradient: "from-cyan-500/10 via-blue-500/5 to-transparent",
     accentColor: "cyan-400",
-    path: "/arbitrum",
+    path: "/arbi/agent",
     isComingSoon: false,
     description:
       "Meet ArbiAgent — your on-chain assistant for effortless Arbitrum blockchain interactions. Send, swap, bridge, mint, and more with speed and efficiency!",
@@ -35,21 +35,21 @@ const bots = [
     icon: Zap,
     bgGradient: "from-cyan-500/10 via-blue-500/5 to-transparent",
     accentColor: "cyan-400",
-    path: "/eigen",
+    path: "/bridge/agent",
     isComingSoon: false,
 
     description:
       "Your friendly bridge bot that effortlessly moves tokens between blockchains. No matter the asset, Eigen makes cross-chain transfers quick and easy!",
   },
   {
-    name: "Warden",
-    role: "Warden Agent",
-    image: "/agents/warden.png",
+    name: "Personal Agent",
+    role: "Personal Agent",
+    image: "/agents/base.png",
     icon: Zap,
     bgGradient: "from-cyan-500/10 via-blue-500/5 to-transparent",
     accentColor: "cyan-400",
-    path: "/warden",
-    isComingSoon: false,
+    path: "/personal/agent",
+    isComingSoon: true,
 
     description:
       "An AI agent that enables seamless Web3 interactions on the Warden Protocol chain. Whether it's interacting with smart contracts or creating new ones, Warden simplifies your blockchain experience.",
@@ -61,7 +61,7 @@ const bots = [
     icon: Zap,
     bgGradient: "from-cyan-500/10 via-blue-500/5 to-transparent",
     accentColor: "cyan-400",
-    path: "/scheduler",
+    path: "/scheduler/agent",
     isComingSoon: false,
 
     description:
@@ -74,7 +74,7 @@ const bots = [
     icon: Code2,
     bgGradient: "from-blue-500/10 via-blue-500/5 to-transparent",
     accentColor: "blue-400",
-    path: "",
+    path: "/dev/agent",
     isComingSoon: true,
     description:
       "Dev is a developer's best friend, trained with code snippets, templates, SDKs, and APIs. Use it to fix errors, develop tools, or get programming help instantly.",

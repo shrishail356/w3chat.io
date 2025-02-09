@@ -1,11 +1,30 @@
 'use client';
 
 import {PrivyProvider} from '@privy-io/react-auth';
-// Replace this with any of the networks listed at https://github.com/wevm/viem/blob/main/src/chains/index.ts
-import {base, baseSepolia} from 'viem/chains';
-
+import {arbitrum, arbitrumSepolia, base, baseSepolia, optimism, optimismSepolia, polygon, polygonMumbai, mainnet, sepolia} from 'viem/chains';
+import {defineChain} from 'viem';
 export default function Providers({children}: {children: React.ReactNode}) {
     const appId = process.env.NEXT_PUBLIC_PRIVY_APP_ID || '';
+    const warden = defineChain({
+        id: 10010, // Replace this with your chain's ID
+        name: 'Warden Testnet',
+        network: 'warden',
+        nativeCurrency: {
+          decimals: 6, // Replace this with the number of decimals for your chain's native token
+          name: 'WARD',
+          symbol: 'WARD',
+        },
+        rpcUrls: {
+          default: {
+            http: ['https://evm.chiado.wardenprotocol.org'],
+            webSocket: ['wss://evm.chiado.wardenprotocol.org'],
+          },
+        },
+        blockExplorers: {
+          default: {name: 'Explorer', url: ''},
+        },
+    });
+
     return (
         <PrivyProvider 
             appId={appId}
@@ -56,7 +75,7 @@ export default function Providers({children}: {children: React.ReactNode}) {
             },
             "defaultChain": base, 
             // Replace this with a list of your desired supported chains
-            "supportedChains": [base, baseSepolia] 
+            "supportedChains": [base, baseSepolia, arbitrum, arbitrumSepolia, warden, mainnet, sepolia, polygon, polygonMumbai, optimism, optimismSepolia] 
             }}
 >
   {children}

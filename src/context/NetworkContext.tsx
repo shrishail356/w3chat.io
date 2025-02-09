@@ -3,8 +3,20 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { usePrivy, useWallets } from '@privy-io/react-auth';
 
-// Network type definition
-export type NetworkType = "mainnet" | "sepolia" | "incorrect" | null;
+export type NetworkType = 
+  | "base_mainnet" 
+  | "base_sepolia" 
+  | "arbitrum_mainnet" 
+  | "arbitrum_sepolia" 
+  | "warden_testnet" 
+  | "ethereum_mainnet"
+  | "ethereum_sepolia"
+  | "polygon_mainnet"
+  | "polygon_mumbai"
+  | "optimism_mainnet"
+  | "optimism_sepolia"
+  | "incorrect" 
+  | null;
 
 interface NetworkContextType {
   selectedNetwork: string;
@@ -19,12 +31,35 @@ interface NetworkContextType {
 const NetworkContext = createContext<NetworkContextType | undefined>(undefined);
 
 const CHAIN_IDS = {
-  mainnet: 8453,
-  sepolia: 84532
+  base_mainnet: 8453,
+  base_sepolia: 84532,
+  arbitrum_mainnet: 42161,
+  arbitrum_sepolia: 421614,
+  warden_testnet: 10010,
+  ethereum_mainnet: 1,
+  ethereum_sepolia: 11155111,
+  polygon_mainnet: 137,
+  polygon_mumbai: 80001,
+  optimism_mainnet: 10,
+  optimism_sepolia: 11155420
+};
+
+const NETWORK_NAMES = {
+  base_mainnet: "Base Mainnet",
+  base_sepolia: "Base Sepolia",
+  arbitrum_mainnet: "Arbitrum Mainnet",
+  arbitrum_sepolia: "Arbitrum Sepolia",
+  warden_testnet: "Warden Testnet",
+  ethereum_mainnet: "Ethereum Mainnet",
+  ethereum_sepolia: "Ethereum Sepolia",
+  polygon_mainnet: "Polygon Mainnet",
+  polygon_mumbai: "Polygon Mumbai",
+  optimism_mainnet: "Optimism Mainnet",
+  optimism_sepolia: "Optimism Sepolia"
 };
 
 export const NetworkProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [selectedNetwork, setSelectedNetworkState] = useState("Base");
+  const [selectedNetwork, setSelectedNetworkState] = useState(NETWORK_NAMES.base_mainnet);
   const [networkType, setNetworkType] = useState<NetworkType>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isCorrectNetwork, setIsCorrectNetwork] = useState(true);
@@ -38,11 +73,13 @@ export const NetworkProvider: React.FC<{ children: ReactNode }> = ({ children })
     // Extract the numeric chain ID from CAIP-2 format (e.g., "eip155:8453" -> 8453)
     const numericChainId = parseInt(currentChainId.split(":")[1]);
 
-    if (numericChainId === CHAIN_IDS.mainnet) {
-      setNetworkType("mainnet");
-      setIsCorrectNetwork(true);
-    } else if (numericChainId === CHAIN_IDS.sepolia) {
-      setNetworkType("sepolia");
+    // Check which network matches the current chain ID
+    const matchingNetwork = Object.entries(CHAIN_IDS).find(
+      ([_, chainId]) => chainId === numericChainId
+    );
+
+    if (matchingNetwork) {
+      setNetworkType(matchingNetwork[0] as NetworkType);
       setIsCorrectNetwork(true);
     } else {
       setNetworkType("incorrect");
@@ -54,9 +91,10 @@ export const NetworkProvider: React.FC<{ children: ReactNode }> = ({ children })
     if (!wallets?.[0] || newNetworkType === "incorrect") return;
     
     try {
-      const chainId = newNetworkType === "mainnet" ? CHAIN_IDS.mainnet : CHAIN_IDS.sepolia;
+      const chainId = CHAIN_IDS[newNetworkType as keyof typeof CHAIN_IDS];
       await wallets[0].switchChain(chainId);
       setNetworkType(newNetworkType);
+      setSelectedNetworkState(NETWORK_NAMES[newNetworkType as keyof typeof NETWORK_NAMES]);
       setIsCorrectNetwork(true);
     } catch (error) {
       console.error("Failed to switch network:", error);
@@ -114,6 +152,12 @@ export const NetworkProvider: React.FC<{ children: ReactNode }> = ({ children })
       {children}
     </NetworkContext.Provider>
   );
+};
+
+// Helper function to get network display name
+export const getNetworkDisplayName = (networkType: NetworkType): string => {
+  if (!networkType || networkType === "incorrect") return "Incorrect Network";
+  return NETWORK_NAMES[networkType];
 };
 
 export const useNetwork = (): NetworkContextType => {

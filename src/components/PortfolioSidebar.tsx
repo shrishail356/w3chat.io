@@ -107,6 +107,9 @@ const PortfolioSidebar = ({ isOpen, walletAddress }: { isOpen: boolean; walletAd
       <div className="h-full flex flex-col">
         <div className="p-3.5 border-b border-white/10">
           <h2 className="text-lg font-semibold">Wallet Portfolio</h2>
+          <h3 className="text-sm text-gray-400">
+            {chainHex}
+          </h3>
           <input
             type="text"
             placeholder="Filter tokens..."

@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { NetworkProvider } from "@/context/NetworkContext";
-
 import Providers from "./providers";
-
+import { Inter } from 'next/font/google';
+import { type ReactNode } from 'react';
+import { BaseProvider } from "./Baseprovider";
+import '@coinbase/onchainkit/styles.css'; 
+import { MobileProvider } from "@/context/MobileContext";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -21,23 +24,27 @@ export const metadata: Metadata = {
     "Revolutionize your blockchain experience with specialized AI bots",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+const inter = Inter({ subsets: ['latin'] });
+
+export default async function RootLayout(props: { children: ReactNode }) {
   return (
     <html lang="en">
-      <head>
+       <head>
         <link rel="icon" type="image/svg+xml" href="/fevicon.svg" />
         <title>W3Chat.io | All-in-one Agent</title>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Providers>
-          <NetworkProvider>{children}</NetworkProvider>
-        </Providers>
+        <BaseProvider>
+          <Providers>
+          <MobileProvider>
+            <NetworkProvider>
+              {props.children}
+            </NetworkProvider>
+            </MobileProvider>
+          </Providers>
+        </BaseProvider>
       </body>
     </html>
   );
