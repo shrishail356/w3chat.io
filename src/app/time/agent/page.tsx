@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import NavBar from "@/components/Header/NavBar";
+import NavBar from "@/components/Header/NavbarTime";
 import { useNetwork } from "@/context/NetworkContext";
 import PortfolioSidebar from "@/components/PortfolioSidebar";
 import { usePrivy } from "@privy-io/react-auth";
