@@ -38,11 +38,36 @@
 ![WhatsApp Image 2025-02-09 at 10 15 13 PM (1)](https://github.com/user-attachments/assets/7120deb3-bac0-47fd-898c-69b6efcccb29)
 ![WhatsApp Image 2025-02-09 at 10 15 16 PM](https://github.com/user-attachments/assets/eef0b04e-dd9f-4099-919b-8d251a28ff87)
 ![WhatsApp Image 2025-02-09 at 10 15 12 PM](https://github.com/user-attachments/assets/c876754f-6e8b-4062-9a35-d9d78bd14ad5)
-<img width="458" alt="Screenshot 2025-02-09 222050" src="https://github.com/user-attachments/assets/6cf63380-cb3c-4faf-b093-6acbe25e4e3f" /> <br /> <br />
 
-### W3Chat Blinks on X (Click On link Preview For Magic) Just connect & Donate
-[https://x.com/W3Chat_io/status/1888631558069690599](https://x.com/W3Chat_io/status/1888631558069690599) 
 
+
+---
+
+## Eigen Bridge Agent Demo
+
+https://github.com/user-attachments/assets/59270b06-356f-4a06-944b-5c83957f5a59
+
+
+
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/f68aa094-2f0d-4866-9fdd-0c28bda3709a" />
+<img width="958" alt="image" src="https://github.com/user-attachments/assets/74027ee4-fa68-468e-8b88-1b05d69be916" />
+<img width="921" alt="image" src="https://github.com/user-attachments/assets/30caac9d-5dfe-4e6f-88b3-a2811a3e5d78" />
+
+---
+
+## Magic Link Demo
+#### W3Chat Blinks on X (Click On link Preview For Magic) Just connect & Donate
+
+
+
+https://github.com/user-attachments/assets/c1d6c4ba-07bc-40f4-a281-a53e796d3a03
+
+
+
+#### [Tweet Blink Demo](https://x.com/Chinmay_io/status/1888738488201126061)    |    [W3Chat.io](https://w3chat.io)
+
+<img width="447" alt="image" src="https://github.com/user-attachments/assets/99a6087e-e110-4edc-b3c2-0b77afffc423" />
+<img width="453" alt="image" src="https://github.com/user-attachments/assets/78102a79-839c-4c4a-af1e-01d767f249e2" />
 
 
 
