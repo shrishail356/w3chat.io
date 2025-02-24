@@ -49,10 +49,10 @@ const bots = [
     bgGradient: "from-cyan-500/10 via-blue-500/5 to-transparent",
     accentColor: "cyan-400",
     path: "/personal/agent",
-    isComingSoon: true,
+    isComingSoon: false,
 
     description:
-      "An AI agent that enables seamless Web3 interactions on the Warden Protocol chain. Whether it's interacting with smart contracts or creating new ones, Warden simplifies your blockchain experience.",
+      "An AI agent that enables seamless Web3 interactions using Base AI Agent Kit. Whether it's interacting with smart contracts or creating new ones, Base AI Agent Kit simplifies your blockchain experience.",
   },
   {
     name: "Scheduler",
@@ -68,8 +68,8 @@ const bots = [
       "Automate your blockchain actions effortlessly! Schedule transactions, token swaps, and more—whether it's sending at a specific time or executing trades based on price conditions. Set it and let Scheduler handle the rest!",
   },
   {
-    name: "Dev",
-    role: "Developer Bot",
+    name: "Magic Links",
+    role: "Magic Links",
     image: "/img/devguru.png",
     icon: Code2,
     bgGradient: "from-blue-500/10 via-blue-500/5 to-transparent",
@@ -77,7 +77,7 @@ const bots = [
     path: "/dev/agent",
     isComingSoon: true,
     description:
-      "Dev is a developer's best friend, trained with code snippets, templates, SDKs, and APIs. Use it to fix errors, develop tools, or get programming help instantly.",
+      "Generate shareable magic links for donations that can be posted directly on Twitter. Anyone can complete the transaction right from Twitter - making donations seamless and social!",
   },
 ];
 
